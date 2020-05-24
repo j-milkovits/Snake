@@ -1,0 +1,63 @@
+TODO:
+    ✔ view @done(03.05.20 - 15:02)
+        ✔ GameScreen @done(03.05.20 - 11:02)
+            JPanel, that will hold GamePlayScreen and GameControlScreen
+            Will be opened and close depending on the main menu actions/WindowManagement
+        ✔ GamePlayScreen @done(03.05.20 - 12:20)
+            This will hold the game itself
+            Curretnlöy about to do a 32x32 GridLayOut with 32x32 panels inside that
+        ✔ GameControlScreen @done(03.05.20 - 12:20)
+            This will hold the controll stuff for the window
+            Probably 4 panels that control the snake via mouseover
+            Menu Button to go back to the menu
+            Label that displays the score
+        ✔ StartScreen @done(03.05.20 - 10:41)
+            Will get created by the main method
+            basically shows the name of the game and some more buttons
+            Start Game
+            Controls
+            Highscores?
+        ✔ Listeners @done(03.05.20 - 13:09)
+            ✔ startButtonListener @done(03.05.20 - 12:22)
+                Listener for the Start button on the StartScreen
+                this will disable the StartScreen and call a method that starts the game in WindowManagement
+            ✔ MouseListeners for GameControlScreen @done(03.05.20 - 13:09)
+            ✔ buttonListener for BackToMenu @done(03.05.20 - 12:47)
+                should be working? had some issues with getParent() because there are like 3 layers between the JPanel and the JFrame
+
+    ✔ model @done(03.05.20 - 15:02)
+        ✔ Snake @done(03.05.20 - 15:02)
+            ArrayList of Position that holds the whole snake
+            If time continues, will delete the first element and add the new position of the head to the end of the list
+            If a fruit gets eaten, the next time cycle won't delete the first element
+        ✔ Position @done(03.05.20 - 15:02)
+            Class to store the width- and heightcoordinate
+    ✔ controller @done(03.05.20 - 21:28)
+        ✔ WindowManagement @done(03.05.20 - 15:02)
+            Handles all the window closing and opening stuff
+        ✔ Main @done(03.05.20 - 15:02)
+            Creates a new StartScreen, prob won't do more than that
+        ✔ TimeManagement @done(03.05.20 - 21:28)
+            This will be the time cycle of the game
+            Calls all the needed methods and has a variable delay
+
+
+    ✔ Fruit @done(03.05.20 - 23:58)
+        I probably wanna make a new class of fruit and out all the logic right there
+        
+    ✔ TimeFlow @done(03.05.20 - 23:58)
+        Save the snake
+        Call the paint method
+        Save the given delay
+
+    ☐ Stuff to do
+        Maybe add apple icon?
+        GameOver
+        Controls
+            Keyboard   
+            DarkMode
+            Delay
+
+
+    WILO:   Kinda done with the main game I think
+            Wanna add some controls now (Keyboard control, DarkMode, Delay, SnakeColor, FruitColor, Make Playfield changeable)
