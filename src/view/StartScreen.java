@@ -12,32 +12,32 @@ public class StartScreen extends JFrame{
 
     JButton startButton;
     JButton settingsButton;
-    JLabel snakeIcon;
+   // JLabel snakeIcon;
 
     /**
      * Constructor
      */
     public StartScreen(int width, int height){
-        super("StartScreen");
+        super("Snake");
         this.width = width; 
         this.height = height;
 
         // Setting window settings
         setSize(this.width, this.height);
         setLocationRelativeTo(null);
-        setLayout(new GridLayout(3,1));
+        setLayout(new GridLayout(2,1)); // 3 instead of 2 if you uncomment the image stuff
 
         startButton = new JButton("Start");
         settingsButton = new JButton("Settings");
 
-        ImageIcon snakeImage = new ImageIcon(".\\res\\snake.png");
-        snakeIcon = new JLabel(snakeImage);
+        //ImageIcon snakeImage = new ImageIcon(".\\res\\snake.png");
+        //snakeIcon = new JLabel(snakeImage);
 
         startButton.addActionListener(new view.listener.startButtonListener());
         settingsButton.addActionListener(new view.listener.settingsButtonListener());
 
         // Adding components to StartScreen
-        add(snakeIcon);
+        //add(snakeIcon);
         add(startButton);
         add(settingsButton);
 

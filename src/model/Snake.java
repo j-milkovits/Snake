@@ -14,7 +14,7 @@ public class Snake {
     private Random rand = new Random();
     private ArrayList<Position> snakePositions = new ArrayList<Position>();
     private Position lastPositionInArrayList;
-    private Direction dir;
+    private Direction dir = DirectionManagement.getDirection();
     int score;
 
     /**
@@ -60,7 +60,14 @@ public class Snake {
         int lastHeight = lastPositionInArrayList.getHeight();
         int lastWidth = lastPositionInArrayList.getWidth();
         Position positionToAdd = new Position(0,0); // Had to initialize cuz I didn't want to do else down here
-        dir = DirectionManagement.getDirection();
+
+        Direction newDir = DirectionManagement.getDirection();
+
+        if (!(Math.abs(dir.ordinal() - newDir.ordinal()) == 2)){
+            dir = newDir;
+        }
+        
+
         Fruit fruit = givenFruit;
         boolean ateFruit = false;
         view.GamePlayScreen gamePlayScreen = givenGamePlayScreen;

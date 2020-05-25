@@ -17,10 +17,7 @@ public class DirectionManagement {
         // Distance = 2 between two enums means that they are opposite directions
         // If they are opposite directions we don't want to change the direction
         // That's why we only change it if the distance is not 2
-        if (!(Math.abs(DirectionManagement.dir.ordinal() - dir.ordinal()) == 2)){
-            DirectionManagement.dir = dir;
-        }
-        
+        DirectionManagement.dir = dir;
     }
 
     /**
