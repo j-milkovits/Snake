@@ -1,6 +1,7 @@
 package controller;
 
 import javax.swing.*;
+import java.awt.Color;
 
 public class WindowManagement {
 
@@ -10,14 +11,22 @@ public class WindowManagement {
     private static view.GamePlayScreen gamePlayScreen;
     private static view.GameControlScreen gameControlScreen;
     private static view.GameOverScreen gameOverScreen;
-    private static int delay = 200;
+    private static view.SettingsScreen settingsScreen;
+    private static int delay = 100;
+
+    // variables for settingsScreen (saving the settings here)
+
+    private static boolean isDarkModeOn = false;
+    private static int snakeColorRed = 128;
+    private static int snakeColorGreen = 255;
+    private static int snakeColorBlue = 0;
 
 
     /**
      * Opens a new StartScreen, called by main method
      */
     public static void openStartScreen(){
-        startScreen = new view.StartScreen(300,300);
+        WindowManagement.startScreen = new view.StartScreen(300,300);
     }
 
     /**
@@ -25,8 +34,12 @@ public class WindowManagement {
      * This method gets called by the startButton in view.StartScreen
      * @param startScreen
      */
-    public static void closeStartScreenOpenGameScreen(){
+    public static void startScreenToGameScreen(){
         WindowManagement.startScreen.setVisible(false);
+        if (WindowManagement.settingsScreen != null){
+            WindowManagement.settingsScreen.setVisible(false); // Disables settingsScreen when ingame
+        }
+        
 
         WindowManagement.gamePlayScreen = new view.GamePlayScreen(800, 800, 32, 32);
         WindowManagement.gameControlScreen = new view.GameControlScreen();
@@ -40,7 +53,7 @@ public class WindowManagement {
      * This method gets called by the menuButton in GameControlScreen
      * @param gameScreen
      */
-    public static void closeGameScreenOpenStartScreen(){
+    public static void gameScreenToStartScreen(){
         WindowManagement.gameScreen.setVisible(false);
 
         WindowManagement.startScreen = new view.StartScreen(300,300);
@@ -54,7 +67,7 @@ public class WindowManagement {
      * Stops the thread and opens a GameOverScreen
      * @param score
      */
-    public static void openGameOverScreen(int score){
+    public static void gameOverScreen(int score){
         gameOverScreen = new view.GameOverScreen(500, 75, score);
         controller.TimeFlow.stopThread();
     }
@@ -62,7 +75,7 @@ public class WindowManagement {
     /**
      * Disables GameScreen and GameOverScreen and opens new StartScreen
      */
-    public static void closeGameAndGameOverScreenOpenStartScreen(){
+    public static void gameScreenAndGameOverScreenToStartScreen(){
         gameOverScreen.setVisible(false);
         gameScreen.setVisible(false);
 
@@ -73,7 +86,7 @@ public class WindowManagement {
     /**
      * Disable GameOverScreen and start new Game
      */
-    public static void closeGameOverAndStartNewGame(){
+    public static void gameOverScreenToStartNewGame(){
         gameOverScreen.setVisible(false);
         gameScreen.setVisible(false);
 
@@ -82,6 +95,11 @@ public class WindowManagement {
         WindowManagement.gameScreen = new view.GameScreen(800, 900, gamePlayScreen, gameControlScreen);
 
         new Thread(new TimeFlow(delay)).start(); // Starts the TimeFlow Thread
+    }
+
+    public static void settingsScreen(){
+        WindowManagement.settingsScreen = new view.SettingsScreen(400,250);
+
     }
 
     /**
@@ -122,6 +140,48 @@ public class WindowManagement {
     public static void setScoreLabel(int score) {
         gameControlScreen.setScoreLabel(score);
     }
+
+    public static boolean isDarkModeOn() {
+        return isDarkModeOn;
+    }
+
+    public static void setDarkModeOn(boolean isDarkModeOn) {
+        WindowManagement.isDarkModeOn = isDarkModeOn;
+    }
+
+    public static int getSnakeColorRed() {
+        return snakeColorRed;
+    }
+
+    public static void setSnakeColorRed(int snakeColorRed) {
+        WindowManagement.snakeColorRed = snakeColorRed;
+    }
+
+    public static int getSnakeColorGreen() {
+        return snakeColorGreen;
+    }
+
+    public static void setSnakeColorGreen(int snakeColorGreen) {
+        WindowManagement.snakeColorGreen = snakeColorGreen;
+    }
+
+    public static int getSnakeColorBlue() {
+        return snakeColorBlue;
+    }
+
+    public static void setSnakeColorBlue(int snakeColorBlue) {
+        WindowManagement.snakeColorBlue = snakeColorBlue;
+    }
+
+    public static int getDelay() {
+        return delay;
+    }
+
+    public static void setDelay(int delay) {
+        WindowManagement.delay = delay;
+    }
+
+   
 
     
 }

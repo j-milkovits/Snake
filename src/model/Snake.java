@@ -103,7 +103,7 @@ public class Snake {
 
         // Checks if the positionToAdd is already "in the snake", if yes GameOverScreen
         if (isPositionInSnakePositions(positionToAdd) == true){
-            WindowManagement.openGameOverScreen(score);
+            WindowManagement.gameOverScreen(score);
             snakePositions.add(positionToAdd);
         }
         else{

@@ -14,7 +14,7 @@ public class startButtonListener implements ActionListener{
      * Calls the method in window management that closes the given screen and opens a new GameScreen
      */
     public void actionPerformed (ActionEvent event){
-        WindowManagement.closeStartScreenOpenGameScreen();
+        WindowManagement.startScreenToGameScreen();
     }
     
 }

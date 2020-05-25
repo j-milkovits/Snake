@@ -50,14 +50,7 @@ TODO:
         Call the paint method
         Save the given delay
 
-    ☐ Stuff to do
-        Maybe add apple icon?
-        GameOver
-        Controls
-            Keyboard   
-            DarkMode
-            Delay
-
-
-    WILO:   Kinda done with the main game I think
-            Wanna add some controls now (Keyboard control, DarkMode, Delay, SnakeColor, FruitColor, Make Playfield changeable)
+    ✔ Settings @done(25.05.20 - 14:54)
+        ✔ DarkMode @done(25.05.20 - 14:54)
+        ✔ Delay Setting @done(25.05.20 - 14:54)
+        ✔ Snake color @done(25.05.20 - 14:54)

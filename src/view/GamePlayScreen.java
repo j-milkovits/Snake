@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 
+import controller.WindowManagement;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -43,7 +45,14 @@ public class GamePlayScreen extends JPanel{
         for (int i = 0; i < panelMatrixHeight; i++){
             for (int j = 0; j < panelMatrixWidth; j++){
                 panelMatrix[i][j] = new JPanel();
-                panelMatrix[i][j].setBackground(new Color(255, 255, 255));
+
+                if (WindowManagement.isDarkModeOn()){
+                    panelMatrix[i][j].setBackground(new Color(70, 70, 70));
+                }
+                else {
+                    panelMatrix[i][j].setBackground(new Color(255, 255, 255));
+                }
+                
             }
         }
 
@@ -64,7 +73,7 @@ public class GamePlayScreen extends JPanel{
      */
     public void paintSnake(ArrayList<model.Position> snakePositions) {
         for (int i = 0; i < snakePositions.size(); i++) {
-            panelMatrix[snakePositions.get(i).getHeight()][snakePositions.get(i).getWidth()].setBackground(new Color(128,255,0));
+            panelMatrix[snakePositions.get(i).getHeight()][snakePositions.get(i).getWidth()].setBackground(new Color(WindowManagement.getSnakeColorRed(), WindowManagement.getSnakeColorGreen(), WindowManagement.getSnakeColorBlue()));
         }
     }
 
@@ -83,7 +92,13 @@ public class GamePlayScreen extends JPanel{
      * @param position
      */
     public void paintLastSnakePartWhite(model.Position position){
-        panelMatrix[position.getHeight()][position.getWidth()].setBackground(new Color(255,255,255));
+        if (WindowManagement.isDarkModeOn()){
+            panelMatrix[position.getHeight()][position.getWidth()].setBackground(new Color(70, 70, 70));
+        }
+        else{
+            panelMatrix[position.getHeight()][position.getWidth()].setBackground(new Color(255,255,255));
+        }
+        
     }
 
     /**
@@ -91,7 +106,7 @@ public class GamePlayScreen extends JPanel{
      * @param position
      */
     public void paintEatenFruitGreen(model.Position position){
-        panelMatrix[position.getHeight()][position.getWidth()].setBackground(new Color(128,255,0));
+        panelMatrix[position.getHeight()][position.getWidth()].setBackground(new Color(WindowManagement.getSnakeColorRed(),WindowManagement.getSnakeColorGreen(),WindowManagement.getSnakeColorBlue()));
     }
 
     /**

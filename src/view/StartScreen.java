@@ -11,7 +11,7 @@ public class StartScreen extends JFrame{
     int height;
 
     JButton startButton;
-    JButton controlsButton;
+    JButton settingsButton;
     JLabel snakeIcon;
 
     /**
@@ -28,17 +28,18 @@ public class StartScreen extends JFrame{
         setLayout(new GridLayout(3,1));
 
         startButton = new JButton("Start");
-        controlsButton = new JButton("Controls");
+        settingsButton = new JButton("Settings");
 
-        ImageIcon snakeImage = new ImageIcon("C:\\Users\\Jonas\\Google Drive\\Sync\\Coding Projects\\Java\\Snake\\res\\snake.png");
+        ImageIcon snakeImage = new ImageIcon(".\\res\\snake.png");
         snakeIcon = new JLabel(snakeImage);
 
         startButton.addActionListener(new view.listener.startButtonListener());
+        settingsButton.addActionListener(new view.listener.settingsButtonListener());
 
         // Adding components to StartScreen
         add(snakeIcon);
         add(startButton);
-        add(controlsButton);
+        add(settingsButton);
 
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

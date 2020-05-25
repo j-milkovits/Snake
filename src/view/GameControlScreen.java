@@ -21,10 +21,10 @@ public class GameControlScreen extends JPanel{
         setLayout(new GridBagLayout());
 
         // Initializing components
-        buttonUp = new JButton("⬆");
-        buttonDown = new JButton("⬇");
-        buttonRight = new JButton("➡");
-        buttonLeft = new JButton("⬅");
+        buttonUp = new JButton("^");
+        buttonDown = new JButton("v");
+        buttonRight = new JButton(">");
+        buttonLeft = new JButton("<");
         menuButton = new JButton("Go back to menu");
         scoreLabel = new JLabel("Score: 0");
 
@@ -43,6 +43,7 @@ public class GameControlScreen extends JPanel{
         buttonLeft.addMouseListener(new view.listener.buttonDirectionListener(buttonLeft));
         buttonRight.addMouseListener(new view.listener.buttonDirectionListener(buttonRight));
         menuButton.addActionListener(new view.listener.menuButtonListener());
+
 
 
         // GridBagLayout Stuff
@@ -83,6 +84,7 @@ public class GameControlScreen extends JPanel{
         cButtonUp.gridy = 0;
         cButtonUp.weightx = 0;
         cButtonUp.weighty = 0;
+        cButtonUp.insets = new Insets(1,1,1,1);
         add(buttonUp, cButtonUp);
 
         // ButtonDown
@@ -94,6 +96,7 @@ public class GameControlScreen extends JPanel{
         cButtonDown.gridy = 1;
         cButtonDown.weightx = 0;
         cButtonDown.weighty = 0;
+        cButtonDown.insets = new Insets(1,1,1,1);
         add(buttonDown, cButtonDown);
 
         // ButtonLeft
@@ -105,6 +108,7 @@ public class GameControlScreen extends JPanel{
         cButtonLeft.gridy = 1;
         cButtonLeft.weightx = 0;
         cButtonLeft.weighty = 0;
+        cButtonLeft.insets = new Insets(1,1,1,1);
         add(buttonLeft, cButtonLeft);
 
         // ButtonRight
@@ -116,6 +120,7 @@ public class GameControlScreen extends JPanel{
         cButtonRight.gridy = 1;
         cButtonRight.weightx = 0;
         cButtonRight.weighty = 0;
+        cButtonRight.insets = new Insets(1,1,1,1);
         add(buttonRight, cButtonRight);
 
         // ScoreLabel

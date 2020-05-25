@@ -10,7 +10,7 @@ public class menuButtonListener implements ActionListener {
      * Close the GameScreen and open the StartScreen when menu button is being pressed
      */
     public void actionPerformed(ActionEvent event){
-        controller.WindowManagement.closeGameScreenOpenStartScreen();
+        controller.WindowManagement.gameScreenToStartScreen();
     }
 
 }

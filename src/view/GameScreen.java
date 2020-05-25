@@ -28,6 +28,11 @@ public class GameScreen extends JFrame{
         add(gamePlayScreen, BorderLayout.CENTER);
         add(gameControlScreen, BorderLayout.PAGE_END);
 
+        // Adding the KeyBoard Listener to the JFrame
+        addKeyListener(new view.listener.keyboardDirectionListener());
+
+        setFocusable(true);
+
         setVisible(true);
     }
 
